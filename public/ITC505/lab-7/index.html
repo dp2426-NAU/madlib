@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Lib</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Mad Lib Form</h1>
+    <form method="POST" action="/submit">
+        <label for="noun">Noun:</label>
+        <input type="text" id="noun" name="noun" required><br><br>
+        
+        <label for="verb">Verb:</label>
+        <input type="text" id="verb" name="verb" required><br><br>
+        
+        <label for="adjective">Adjective:</label>
+        <input type="text" id="adjective" name="adjective" required><br><br>
+        
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place" required><br><br>
+        
+        <label for="pluralNoun">Plural Noun:</label>
+        <input type="text" id="pluralNoun" name="pluralNoun" required><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <div class="container">
+        <h1>Addendum for Lab-7: Mad Lib Assignment</h1>
+        <h2>Challenges Faced</h2>
+        <ul>
+            <li><strong>Middleware Configuration:</strong> Initially, we encountered issues setting up <code>express.urlencoded</code>, which is essential for handling form submissions. After reviewing the documentation, we resolved it by ensuring the middleware was correctly included in <code>server.js</code>.</li>
+            <li><strong>Static File Serving:</strong> Serving the form from the <code>public</code> directory required updating the Express static middleware path. This was a simple fix once identified.</li>
+        </ul>
+
+        <h2>Server Functionality</h2>
+        <p>The <code>server.js</code> file handles the following routes:</p>
+        <ul>
+            <li><code>/</code> (GET): Displays the main Mad Lib form (<code>index.html</code>).</li>
+            <li><code>/submit</code> (POST): Processes the form input and dynamically creates a personalized story.</li>
+            <li><code>/random</code> (GET): Generates and returns a random number as a fun feature.</li>
+        </ul>
+        <p>We used Express.js to create a lightweight and efficient server for this project.</p>
+
+        <h2>Tips for Success</h2>
+        <ul>
+            <li>Use <code>console.log()</code> statements liberally to debug routes and middleware behavior.</li>
+            <li>For production, tools like <code>pm2</code> or <code>forever</code> can keep the server running continuously with commands like:</li>
+            <ul>
+                <li>With <code>pm2</code>: <code>pm2 start server.js</code></li>
+                <li>With <code>forever</code>: <code>forever start server.js</code></li>
+            </ul>
+            <li>Regularly check logs using:
+                <ul>
+                    <li><code>pm2 logs</code> for <code>pm2</code></li>
+                    <li><code>forever logs</code> for <code>forever</code></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Lessons Learned</h2>
+        <p>We learned how to integrate a basic HTML form with an Express server, handle dynamic user input, and generate real-time responses. Troubleshooting middleware and static file serving helped deepen our understanding of server-side development.</p>
+    </div>
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+         var x = document.lastModified;
+         document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+</html>
